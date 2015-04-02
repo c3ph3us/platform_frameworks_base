@@ -1006,9 +1006,6 @@ static ssize_t extractPlatformBuildVersion(AssetManager& assets, Bundle* bundle)
     Asset* asset = assets.openNonAsset(cookie, "AndroidManifest.xml", Asset::ACCESS_STREAMING);
 
     if (asset == NULL) {
-        // Host side tools should not be limited by lack of Manifest.
-        bundle->setPlatformBuildVersionCode(String8::format("%d", 21));
-        bundle->setPlatformBuildVersionName(String8::format("%s", "APKTOOL"));
         return NO_ERROR;
     }
 
